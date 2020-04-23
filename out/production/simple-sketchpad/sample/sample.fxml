@@ -1,8 +1,88 @@
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.GridPane?>
+<?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<GridPane fx:controller="sample.Controller"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
-</GridPane>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <BorderPane prefHeight="768.0" prefWidth="1366.0">
+         <left>
+            <VBox fx:id="vbox" prefHeight="768.0" prefWidth="78.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="select_btn" mnemonicParsing="false" onAction="#setSelectMode" prefHeight="26.0" prefWidth="111.0" text="Select">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="freehand_btn" mnemonicParsing="false" onAction="#setFreehandMode" prefHeight="26.0" prefWidth="111.0" text="Freehand">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="line_btn" mnemonicParsing="false" onAction="#setLineMode" prefHeight="26.0" prefWidth="156.0" text="Line">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="rectangle_btn" mnemonicParsing="false" onAction="#setRectangleMode" prefHeight="26.0" prefWidth="137.0" text="Rectangle">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="ellipse_btn" mnemonicParsing="false" onAction="#setEllipseMode" prefHeight="26.0" prefWidth="169.0" text="ellipse">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="polygon_btn" mnemonicParsing="false" onAction="#setPolygonMode" prefHeight="26.0" prefWidth="160.0" text="polygon">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Button>
+                  <ColorPicker fx:id="colorPicker">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </ColorPicker>
+               </children>
+            </VBox>
+         </left>
+         <top>
+            <MenuBar fx:id="menu" BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#load" text="Load" />
+                        <MenuItem mnemonicParsing="false" onAction="#save" text="Save" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#undo" text="Undo" />
+                        <MenuItem mnemonicParsing="false" onAction="#redo" text="Redo" />
+                        <MenuItem mnemonicParsing="false" onAction="#copy" text="Copy" />
+                        <MenuItem mnemonicParsing="false" onAction="#cut" text="Cut" />
+                        <MenuItem mnemonicParsing="false" onAction="#paste" text="Paste" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+         <center>
+            <Pane fx:id="pane" prefHeight="362.0" prefWidth="510.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Canvas fx:id="canvas" height="720.0" layoutX="4.0" layoutY="7.0" width="1280.0" />
+               </children></Pane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
